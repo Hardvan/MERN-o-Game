@@ -1,5 +1,6 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
+
 const app = express();
 const PORT = 5000;
 
@@ -8,25 +9,28 @@ app.use(cors());
 app.use(express.json());
 
 // Sample video games data
-const videoGamesData = require('./videogames_data.json');
+const videoGamesData = require("./videogames_data.json");
 
 // Routes
-app.get('/api/videogames', (req, res) => {
-    res.json(videoGamesData);
+app.get("/api/videogames", (req, res) => {
+  // Return all video games
+  res.json(videoGamesData);
 });
 
 // Add new review
-app.post('/api/videogames/:id/review', (req, res) => {
-    const gameId = req.params.id;
-    const { review } = req.body;
-    const game = videoGamesData.find(game => game.id == gameId);
-    
-    if (game) {
-        game.reviews.push(review);
-        res.json({ success: true, message: "Review added successfully", game });
-    } else {
-        res.status(404).json({ success: false, message: "Game not found" });
-    }
+app.post("/api/videogames/:id/review", (req, res) => {
+  const gameId = req.params.id;
+  const { review } = req.body;
+  const game = videoGamesData.find((game) => game.id == gameId);
+
+  if (game) {
+    game.reviews.push(review);
+    res.json({ success: true, message: "Review added successfully", game });
+  } else {
+    res.status(404).json({ success: false, message: "Game not found" });
+  }
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
