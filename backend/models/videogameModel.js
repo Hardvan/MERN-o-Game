@@ -1,3 +1,8 @@
+/*
+MongoDB code will be added here.
+Right now, we are using a JSON file to store the data.
+*/
+
 // Sample video games data
 const videoGamesData = require("../data/videogames_data.json");
 
