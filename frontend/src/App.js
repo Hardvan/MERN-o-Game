@@ -3,9 +3,18 @@ import axios from "axios";
 import "./App.css";
 import VideoGameCard from "./components/VideoGameCard";
 
+// Loading spinner component
+const LoadingSpinner = () => (
+  <div className="loading-spinner">
+    <div className="spinner"></div>
+    <p>Loading...</p>
+  </div>
+);
+
 function App() {
   const [videoGames, setVideoGames] = useState([]); // State to store the video games
   const [reviews, setReviews] = useState({}); // State to store reviews for each game
+  const [loading, setLoading] = useState(true); // State to track loading
 
   // Use the environment variable for API URL
   const API_URL = process.env.REACT_APP_API_URL;
@@ -14,15 +23,18 @@ function App() {
   useEffect(() => {
     // Clear reviews
     setReviews({});
+    setLoading(true); // Set loading to true while fetching
 
     // Fetch video games data
     axios
       .get(`${API_URL}/api/videogames`)
       .then((response) => {
         setVideoGames(response.data); // Update the video games state
+        setLoading(false); // Set loading to false when data is fetched
       })
       .catch((error) => {
         console.error("There was an error fetching the video games!", error);
+        setLoading(false); // Set loading to false even if there is an error
       });
   }, [API_URL]);
 
@@ -87,18 +99,22 @@ function App() {
   return (
     <div className="App">
       <h1>Video Game Library</h1>
-      <div className="game-list">
-        {videoGames.map((game) => (
-          <VideoGameCard
-            key={game.id}
-            game={game}
-            reviews={reviews}
-            onReviewChange={handleReviewChange}
-            onAddReview={handleAddReview}
-            onDeleteAllReviews={handleDeleteAllReviews}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <LoadingSpinner /> // Show loading spinner while fetching
+      ) : (
+        <div className="game-list">
+          {videoGames.map((game) => (
+            <VideoGameCard
+              key={game.id}
+              game={game}
+              reviews={reviews}
+              onReviewChange={handleReviewChange}
+              onAddReview={handleAddReview}
+              onDeleteAllReviews={handleDeleteAllReviews}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
