@@ -6,7 +6,7 @@ import VideoGameCard from "./components/VideoGameCard";
 function App() {
   const [videoGames, setVideoGames] = useState([]); // State to store the video games
   const [reviews, setReviews] = useState({}); // State to store reviews for each game
-  const API_URL = "https://mern-o-game-backend.onrender.com/";
+  const API_URL = "https://mern-o-game-backend.onrender.com";
 
   // Fetch all video games data from the server
   useEffect(() => {
