@@ -62,6 +62,28 @@ function App() {
     }));
   };
 
+  // Function to delete all reviews for a video game
+  const handleDeleteAllReviews = (id) => {
+    axios
+      .delete(`${API_URL}/api/videogames/${id}/reviews`)
+      .then((response) => {
+        // Update the video games state with the updated game
+        const updatedGames = videoGames.map((game) =>
+          game.id === id ? response.data.game : game
+        );
+        setVideoGames(updatedGames);
+
+        // Clear reviews for the specific game
+        setReviews((prevReviews) => ({
+          ...prevReviews,
+          [id]: "",
+        }));
+      })
+      .catch((error) => {
+        console.error("There was an error deleting all reviews!", error);
+      });
+  };
+
   return (
     <div className="App">
       <h1>Video Game Library</h1>
@@ -73,6 +95,7 @@ function App() {
             reviews={reviews}
             onReviewChange={handleReviewChange}
             onAddReview={handleAddReview}
+            onDeleteAllReviews={handleDeleteAllReviews}
           />
         ))}
       </div>

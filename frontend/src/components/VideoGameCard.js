@@ -2,7 +2,13 @@ import React from "react";
 import ReviewInput from "./ReviewInput";
 import PropTypes from "prop-types";
 
-function VideoGameCard({ game, reviews, onReviewChange, onAddReview }) {
+function VideoGameCard({
+  game,
+  reviews,
+  onReviewChange,
+  onAddReview,
+  onDeleteAllReviews,
+}) {
   return (
     <div className="game-card">
       <img src={game.image} alt={game.title} />
@@ -21,6 +27,9 @@ function VideoGameCard({ game, reviews, onReviewChange, onAddReview }) {
         onReviewChange={(e) => onReviewChange(game.id, e.target.value)}
         onAddReview={() => onAddReview(game.id)}
       />
+      <button onClick={() => onDeleteAllReviews(game.id)}>
+        Delete All Reviews
+      </button>
     </div>
   );
 }
@@ -31,6 +40,7 @@ VideoGameCard.propTypes = {
   reviews: PropTypes.object.isRequired,
   onReviewChange: PropTypes.func.isRequired,
   onAddReview: PropTypes.func.isRequired,
+  onDeleteAllReviews: PropTypes.func.isRequired,
 };
 
 export default VideoGameCard;
