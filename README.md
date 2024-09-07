@@ -1,8 +1,35 @@
 # MERN-o-Game: Video Game Library & Review
 
-## Project Description
-
 MERN-o-Game is a simple video game library and review system built using the MERN stack (MongoDB, Express.js, React, and Node.js). This project allows users to view a list of video games, and add reviews to them. The project does not implement any database logic yet, and data is stored & manipulated in JSON format.
+
+## Link to the Website
+
+- [Frontend on Vercel](https://mern-o-game-frontend2.vercel.app/) (Entire website will be visible here with the backend API running on Render)
+- [Backend API on Render](https://mern-o-game-backend.onrender.com/)
+
+## How I deployed the project
+
+### Deploy Backend on Render
+
+1. Create a new `Web Service` on Render.
+2. Choose the GitHub repository to deploy from.
+3. Change the root folder to `/backend`.
+4. Setup the commands:
+   - Build Command: `npm install`
+   - Start Command: `node server.js`
+5. Click on `Deploy` to deploy the backend API.
+
+### Deploy Frontend on Vercel
+
+1. Click on the `New Project` button.
+2. Choose the GitHub repository to deploy from.
+3. Choose `Create React App` as the **Framework Preset**.
+4. Root directory: `/frontend`.
+5. **Build Command**: `npm run build`
+6. **Output Directory**: `build`
+7. `Deploy` the project.
+
+> Note: The backend API URL is hardcoded in the frontend. Make sure to update the URL in the frontend code to the deployed backend API URL.
 
 ## Features
 
