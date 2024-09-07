@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "image": "https://www.wired.com/story/legend-of-zelda-breath-of-the-wild-changed-gaming/",
+    "description": "An action-adventure game set in a vast open world.",
+    "reviews": []
+  },
+  {
+    "id": 2,
+    "title": "God of War",
+    "image": "https://deadline.com/2022/03/god-of-war-tv-series-prime-video-playstation-amazon-studios-1234959867/",
+    "description": "A story-driven action game with Greek mythology.",
+    "reviews": []
+  }
+]
