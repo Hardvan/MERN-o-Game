@@ -26,4 +26,19 @@ const addReviewToGame = (id, review) => {
   return null;
 };
 
-module.exports = { getAllVideoGames, findVideoGameById, addReviewToGame };
+// Delete all reviews for a game
+const deleteAllReviewsFromGame = (id) => {
+  const game = findVideoGameById(id);
+  if (game) {
+    game.reviews = [];
+    return game;
+  }
+  return null;
+};
+
+module.exports = {
+  getAllVideoGames,
+  findVideoGameById,
+  addReviewToGame,
+  deleteAllReviewsFromGame,
+};

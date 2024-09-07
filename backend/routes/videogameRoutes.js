@@ -9,17 +9,6 @@ router.get("/", videoGameController.getVideoGames);
 router.post("/:id/review", videoGameController.addReview);
 
 // Route to delete all reviews for a specific game
-router.delete("/videogames/:id/reviews", (req, res) => {
-  const { id } = req.params;
-
-  // Logic to find the game and clear its reviews
-  const game = games.find((game) => game.id === parseInt(id));
-  if (game) {
-    game.reviews = [];
-    res.json({ game });
-  } else {
-    res.status(404).send("Game not found");
-  }
-});
+router.delete("/:id/reviews", videoGameController.deleteAllReviews);
 
 module.exports = router;
