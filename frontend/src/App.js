@@ -6,11 +6,12 @@ import VideoGameCard from "./components/VideoGameCard";
 function App() {
   const [videoGames, setVideoGames] = useState([]); // State to store the video games
   const [reviews, setReviews] = useState({}); // State to store reviews for each game
+  const API_URL = "https://mern-o-game-backend.onrender.com/";
 
   // Fetch all video games data from the server
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/videogames")
+      .get(`${API_URL}/api/videogames`)
       .then((response) => {
         setVideoGames(response.data); // Update the video games state
       })
@@ -25,7 +26,7 @@ function App() {
 
     if (newReview) {
       axios
-        .post(`http://localhost:5000/api/videogames/${id}/review`, {
+        .post(`${API_URL}/api/videogames/${id}/review`, {
           review: newReview,
         })
         .then((response) => {
