@@ -1,6 +1,6 @@
-// components/VideoGameCard.js
 import React from "react";
 import ReviewInput from "./ReviewInput";
+import PropTypes from "prop-types";
 
 function VideoGameCard({ game, reviews, onReviewChange, onAddReview }) {
   return (
@@ -24,5 +24,13 @@ function VideoGameCard({ game, reviews, onReviewChange, onAddReview }) {
     </div>
   );
 }
+
+// Add prop-types for validation
+VideoGameCard.propTypes = {
+  game: PropTypes.object.isRequired,
+  reviews: PropTypes.object.isRequired,
+  onReviewChange: PropTypes.func.isRequired,
+  onAddReview: PropTypes.func.isRequired,
+};
 
 export default VideoGameCard;

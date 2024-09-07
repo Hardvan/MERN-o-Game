@@ -1,5 +1,5 @@
-// components/ReviewInput.js
 import React from "react";
+import PropTypes from "prop-types";
 
 function ReviewInput({ review, onReviewChange, onAddReview }) {
   return (
@@ -14,5 +14,12 @@ function ReviewInput({ review, onReviewChange, onAddReview }) {
     </div>
   );
 }
+
+// Add prop-types for validation
+ReviewInput.propTypes = {
+  review: PropTypes.string.isRequired,
+  onReviewChange: PropTypes.func.isRequired,
+  onAddReview: PropTypes.func.isRequired,
+};
 
 export default ReviewInput;
