@@ -50,7 +50,7 @@ function App() {
   // Function to handle review input change for each game
   const handleReviewChange = (id, value) => {
     setReviews((prevReviews) => ({
-      ...prevReviews,
+      ...prevReviews, // ... spread operator: copy the existing reviews
       [id]: value, // Update the review for the specific game
     }));
   };
