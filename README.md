@@ -42,10 +42,16 @@ MERN-o-Game is a simple video game library and review system built using the MER
 ```plaintext
 MERN-o-Game/
 ├── backend/
+│   ├── controllers/
+│   │   └── videogameController.js
+│   ├── data/
+│   │   └── videogames_data.json
+│   ├── models/
+│   │   └── videogameModel.js
 │   ├── routes/
 │   │   └── videogameRoutes.js
-│   ├── videogames_data.json
 │   └── server.js
+|   └── package.json
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
