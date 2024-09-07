@@ -4,7 +4,7 @@ import "./App.css";
 
 function App() {
   const [videoGames, setVideoGames] = useState([]); // State to store the video games
-  const [newReview, setNewReview] = useState(""); // State to store the new review
+  const [reviews, setReviews] = useState({}); // State to store reviews for each game
 
   // Fetch all video games data from the server
   useEffect(() => {
@@ -20,22 +20,38 @@ function App() {
 
   // Function to add a new review to a video game
   const handleAddReview = (id) => {
-    axios
-      .post(`http://localhost:5000/api/videogames/${id}/review`, {
-        review: newReview,
-      })
-      .then((response) => {
-        // Update the video games state with the new review
-        const updatedGames = videoGames.map((game) =>
-          game.id === id ? response.data.game : game
-        );
-        setVideoGames(updatedGames);
+    const newReview = reviews[id]; // Get the review for the specific game
 
-        setNewReview(""); // Clear the input field
-      })
-      .catch((error) => {
-        console.error("There was an error adding the review!", error);
-      });
+    if (newReview) {
+      axios
+        .post(`http://localhost:5000/api/videogames/${id}/review`, {
+          review: newReview,
+        })
+        .then((response) => {
+          // Update the video games state with the new review
+          const updatedGames = videoGames.map((game) =>
+            game.id === id ? response.data.game : game
+          );
+          setVideoGames(updatedGames);
+
+          // Clear the review for the specific game after adding
+          setReviews((prevReviews) => ({
+            ...prevReviews,
+            [id]: "",
+          }));
+        })
+        .catch((error) => {
+          console.error("There was an error adding the review!", error);
+        });
+    }
+  };
+
+  // Function to handle review input change for each game
+  const handleReviewChange = (id, value) => {
+    setReviews((prevReviews) => ({
+      ...prevReviews,
+      [id]: value, // Update the review for the specific game
+    }));
   };
 
   return (
@@ -58,8 +74,8 @@ function App() {
             <input
               type="text"
               placeholder="Add a review"
-              value={newReview}
-              onChange={(e) => setNewReview(e.target.value)}
+              value={reviews[game.id] || ""} // Show review only for the current game
+              onChange={(e) => handleReviewChange(game.id, e.target.value)}
             />
             <button onClick={() => handleAddReview(game.id)}>
               + Add Review
