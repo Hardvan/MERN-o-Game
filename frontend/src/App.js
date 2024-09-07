@@ -8,8 +8,12 @@ function App() {
   const [reviews, setReviews] = useState({}); // State to store reviews for each game
   const API_URL = "https://mern-o-game-backend.onrender.com";
 
-  // Fetch all video games data from the server
+  // Fetch all video games data from the server and clear reviews
   useEffect(() => {
+    // Clear reviews
+    setReviews({});
+
+    // Fetch video games data
     axios
       .get(`${API_URL}/api/videogames`)
       .then((response) => {
