@@ -6,7 +6,9 @@ import VideoGameCard from "./components/VideoGameCard";
 function App() {
   const [videoGames, setVideoGames] = useState([]); // State to store the video games
   const [reviews, setReviews] = useState({}); // State to store reviews for each game
-  const API_URL = "https://mern-o-game-backend.onrender.com";
+
+  // Use the environment variable for API URL
+  const API_URL = process.env.REACT_APP_API_URL;
 
   // Fetch all video games data from the server and clear reviews
   useEffect(() => {
@@ -22,7 +24,7 @@ function App() {
       .catch((error) => {
         console.error("There was an error fetching the video games!", error);
       });
-  }, []);
+  }, [API_URL]);
 
   // Function to add a new review to a video game
   const handleAddReview = (id) => {
