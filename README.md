@@ -1,4 +1,4 @@
-# MERN-o-Game: Video Game Library & Review
+# MERN-o-Game: Video Game Library & Review System
 
 MERN-o-Game is a simple video game library and review system built using the MERN stack (MongoDB, Express.js, React, and Node.js). This project allows users to view a list of video games, and add reviews to them. The project does not implement any database logic yet, and data is stored & manipulated in JSON format.
 
