@@ -13,7 +13,7 @@ MERN-o-Game is a simple video game library and review system built using the MER
 
 1. Create a new `Web Service` on Render.
 2. Choose the GitHub repository to deploy from.
-3. Change the root folder to `/backend`.
+3. Change the root directory to `backend`.
 4. Setup the commands:
    - Build Command: `npm install`
    - Start Command: `node server.js`
@@ -25,11 +25,13 @@ MERN-o-Game is a simple video game library and review system built using the MER
 2. Choose the GitHub repository to deploy from.
 3. Choose `Create React App` as the **Framework Preset**.
 4. Root directory: `/frontend`.
-5. **Build Command**: `npm run build`
-6. **Output Directory**: `build`
-7. `Deploy` the project.
+5. **Build Command**: `npm run build` (Don't override)
+6. **Output Directory**: `build` (Don't override)
+7. Set the environment variable `REACT_APP_API_URL` to the backend API URL (generated from Render).
+8. `Deploy` the project.
 
-> Note: The backend API URL is hardcoded in the frontend. Make sure to update the URL in the frontend code to the deployed backend API URL.
+> Note: If white screen error occurs, it means the REACT_APP_API_URL is not set correctly.
+> Go to the Project > Settings > Environment Variables and add the REACT_APP_API_URL variable.
 
 ## Features
 
@@ -67,6 +69,10 @@ MERN-o-Game/
 ## Project Installation
 
 1. Clone this repository
+
+   ```bash
+   git clone https://github.com/Hardvan/MERN-o-Game.git
+   ```
 
 2. Install dependencies for both the backend and frontend:
 
