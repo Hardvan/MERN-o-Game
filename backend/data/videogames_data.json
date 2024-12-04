@@ -12,5 +12,12 @@
     "image": "https://deadline.com/wp-content/uploads/2022/03/EGS_GodofWar_SantaMonicaStudio_S2_1200x1600-fbdf3cbc2980749091d52751ffabb7b7_1200x1600-fbdf3cbc2980749091d52751ffabb7b7-e1646683029138.jpeg?w=1024",
     "description": "A story-driven action game with Greek mythology.",
     "reviews": []
+  },
+  {
+    "id": 3,
+    "title": "Deep Rock Galactic",
+    "image": "https://assetsio.gnwcdn.com/deep-rock-galactic-season-2-promo-art.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+    "description": "A cooperative first-person shooter game with dwarves, darkness and danger.",
+    "reviews": []
   }
 ]
