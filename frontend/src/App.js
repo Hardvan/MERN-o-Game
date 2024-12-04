@@ -21,20 +21,24 @@ function App() {
 
   // Fetch all video games data from the server and clear reviews
   useEffect(() => {
-    // Clear reviews
+    // Clear reviews on initial load
     setReviews({});
-    setLoading(true); // Set loading to true while fetching
+    // Set loading to true while fetching
+    setLoading(true);
 
     // Fetch video games data
     axios
       .get(`${API_URL}/api/videogames`)
       .then((response) => {
-        setVideoGames(response.data); // Update the video games state
-        setLoading(false); // Set loading to false when data is fetched
+        // Update the video games state
+        setVideoGames(response.data);
+        // Set loading to false when data is fetched
+        setLoading(false);
       })
       .catch((error) => {
         console.error("There was an error fetching the video games!", error);
-        setLoading(false); // Set loading to false even if there is an error
+        // Set loading to false even if there is an error
+        setLoading(false);
       });
   }, [API_URL]);
 

@@ -11,4 +11,5 @@ router.post("/:id/review", videoGameController.addReview);
 // Route to delete all reviews for a specific game
 router.delete("/:id/reviews", videoGameController.deleteAllReviews);
 
+// Export router to use in server.js
 module.exports = router;
