@@ -90,6 +90,12 @@ MERN-o-Game/
      npm install
      ```
 
+3. Create a `.env` file in the `frontend` directory and add the following:
+
+   ```plaintext
+   REACT_APP_API_URL=http://localhost:5000
+   ```
+
 > Pro Tip: Use a split terminal to run both the backend and frontend simultaneously.
 
 ## How to Run the Project
